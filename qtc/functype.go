@@ -160,7 +160,7 @@ func (f *funcType) DefString() string {
 		// skip the first ', '
 		args = args[2:]
 	}
-	return fmt.Sprintf("%s%s(%s) string", f.defPrefix, f.name, args)
+	return fmt.Sprintf("%s%s(%s) qtwit%s.Factory", f.defPrefix, f.name, args, mangleSuffix)
 }
 
 func (f *funcType) prefixWrite() string {

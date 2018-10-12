@@ -81,32 +81,32 @@ func testParseFuncCallSuccess(t *testing.T, s, callStream string) {
 
 func TestParseFuncDefSuccess(t *testing.T) {
 	// private func without args
-	testParseFuncDefSuccess(t, "xx()", "xx() string",
+	testParseFuncDefSuccess(t, "xx()", "xx() qtwit422016.Factory",
 		"streamxx(qw422016 *qt422016.Writer)", "streamxx(qw422016)",
 		"writexx(qq422016 qtio422016.Writer)", "writexx(qq422016)")
 
 	// public func with a single arg
-	testParseFuncDefSuccess(t, "F(a int)", "F(a int) string",
+	testParseFuncDefSuccess(t, "F(a int)", "F(a int) qtwit422016.Factory",
 		"StreamF(qw422016 *qt422016.Writer, a int)", "StreamF(qw422016, a)",
 		"WriteF(qq422016 qtio422016.Writer, a int)", "WriteF(qq422016, a)")
 
 	// public method without args
-	testParseFuncDefSuccess(t, "(f *foo) M()", "(f *foo) M() string",
+	testParseFuncDefSuccess(t, "(f *foo) M()", "(f *foo) M() qtwit422016.Factory",
 		"(f *foo) StreamM(qw422016 *qt422016.Writer)", "f.StreamM(qw422016)",
 		"(f *foo) WriteM(qq422016 qtio422016.Writer)", "f.WriteM(qq422016)")
 
 	// private method with three args
-	testParseFuncDefSuccess(t, "(f *Foo) bar(x, y string, z int)", "(f *Foo) bar(x, y string, z int) string",
+	testParseFuncDefSuccess(t, "(f *Foo) bar(x, y string, z int)", "(f *Foo) bar(x, y string, z int) qtwit422016.Factory",
 		"(f *Foo) streambar(qw422016 *qt422016.Writer, x, y string, z int)", "f.streambar(qw422016, x, y, z)",
 		"(f *Foo) writebar(qq422016 qtio422016.Writer, x, y string, z int)", "f.writebar(qq422016, x, y, z)")
 
 	// method with complex args
-	testParseFuncDefSuccess(t, "(t TPL) Head(h1, h2 func(x, y int), h3 map[int]struct{})", "(t TPL) Head(h1, h2 func(x, y int), h3 map[int]struct{}) string",
+	testParseFuncDefSuccess(t, "(t TPL) Head(h1, h2 func(x, y int), h3 map[int]struct{})", "(t TPL) Head(h1, h2 func(x, y int), h3 map[int]struct{}) qtwit422016.Factory",
 		"(t TPL) StreamHead(qw422016 *qt422016.Writer, h1, h2 func(x, y int), h3 map[int]struct{})", "t.StreamHead(qw422016, h1, h2, h3)",
 		"(t TPL) WriteHead(qq422016 qtio422016.Writer, h1, h2 func(x, y int), h3 map[int]struct{})", "t.WriteHead(qq422016, h1, h2, h3)")
 
 	// method with variadic arguments
-	testParseFuncDefSuccess(t, "(t TPL) Head(name string, num int, otherNames ...string)", "(t TPL) Head(name string, num int, otherNames ...string) string",
+	testParseFuncDefSuccess(t, "(t TPL) Head(name string, num int, otherNames ...string)", "(t TPL) Head(name string, num int, otherNames ...string) qtwit422016.Factory",
 		"(t TPL) StreamHead(qw422016 *qt422016.Writer, name string, num int, otherNames ...string)", "t.StreamHead(qw422016, name, num, otherNames...)",
 		"(t TPL) WriteHead(qq422016 qtio422016.Writer, name string, num int, otherNames ...string)", "t.WriteHead(qq422016, name, num, otherNames...)")
 }

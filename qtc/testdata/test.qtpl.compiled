@@ -25,12 +25,14 @@ import (
 	qtio422016 "io"
 
 	qt422016 "github.com/manvalls/quicktemplate"
+	qtwit422016 "github.com/manvalls/wit"
 )
 
 //line testdata/test.qtpl:16
 var (
 	_ = qtio422016.Copy
 	_ = qt422016.AcquireByteBuffer
+	_ = qtwit422016.Nil
 )
 
 //line testdata/test.qtpl:17
@@ -447,17 +449,13 @@ func WriteFoo(qq422016 qtio422016.Writer, a []FooArgs) {
 }
 
 //line testdata/test.qtpl:75
-func Foo(a []FooArgs) string {
+func Foo(a []FooArgs) qtwit422016.Factory {
 	//line testdata/test.qtpl:75
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:75
-	WriteFoo(qb422016, a)
-	//line testdata/test.qtpl:75
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:75
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:75
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:75
+		WriteFoo(qw422016, a)
+		//line testdata/test.qtpl:75
+	})
 //line testdata/test.qtpl:75
 }
 
@@ -589,17 +587,13 @@ func writeprintArgs(qq422016 qtio422016.Writer, i int, a *FooArgs) {
 }
 
 //line testdata/test.qtpl:111
-func printArgs(i int, a *FooArgs) string {
+func printArgs(i int, a *FooArgs) qtwit422016.Factory {
 	//line testdata/test.qtpl:111
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:111
-	writeprintArgs(qb422016, i, a)
-	//line testdata/test.qtpl:111
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:111
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:111
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:111
+		writeprintArgs(qw422016, i, a)
+		//line testdata/test.qtpl:111
+	})
 //line testdata/test.qtpl:111
 }
 
@@ -656,17 +650,13 @@ func WritePrintPage(qq422016 qtio422016.Writer, p Page, title string) {
 }
 
 //line testdata/test.qtpl:130
-func PrintPage(p Page, title string) string {
+func PrintPage(p Page, title string) qtwit422016.Factory {
 	//line testdata/test.qtpl:130
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:130
-	WritePrintPage(qb422016, p, title)
-	//line testdata/test.qtpl:130
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:130
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:130
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:130
+		WritePrintPage(qw422016, p, title)
+		//line testdata/test.qtpl:130
+	})
 //line testdata/test.qtpl:130
 }
 
@@ -694,17 +684,13 @@ func (b *ContactsPage) WriteHead(qq422016 qtio422016.Writer) {
 }
 
 //line testdata/test.qtpl:134
-func (b *ContactsPage) Head() string {
+func (b *ContactsPage) Head() qtwit422016.Factory {
 	//line testdata/test.qtpl:134
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:134
-	b.WriteHead(qb422016)
-	//line testdata/test.qtpl:134
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:134
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:134
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:134
+		b.WriteHead(qw422016)
+		//line testdata/test.qtpl:134
+	})
 //line testdata/test.qtpl:134
 }
 
@@ -727,17 +713,13 @@ func (b *ContactsPage) WriteBody(qq422016 qtio422016.Writer, title string) {
 }
 
 //line testdata/test.qtpl:135
-func (b *ContactsPage) Body(title string) string {
+func (b *ContactsPage) Body(title string) qtwit422016.Factory {
 	//line testdata/test.qtpl:135
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:135
-	b.WriteBody(qb422016, title)
-	//line testdata/test.qtpl:135
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:135
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:135
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:135
+		b.WriteBody(qw422016, title)
+		//line testdata/test.qtpl:135
+	})
 //line testdata/test.qtpl:135
 }
 
@@ -765,17 +747,13 @@ func (h *Homepage) WriteHead(qq422016 qtio422016.Writer) {
 }
 
 //line testdata/test.qtpl:139
-func (h *Homepage) Head() string {
+func (h *Homepage) Head() qtwit422016.Factory {
 	//line testdata/test.qtpl:139
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:139
-	h.WriteHead(qb422016)
-	//line testdata/test.qtpl:139
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:139
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:139
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:139
+		h.WriteHead(qw422016)
+		//line testdata/test.qtpl:139
+	})
 //line testdata/test.qtpl:139
 }
 
@@ -805,17 +783,13 @@ func (h *Homepage) WriteBody(qq422016 qtio422016.Writer, title string) {
 }
 
 //line testdata/test.qtpl:143
-func (h *Homepage) Body(title string) string {
+func (h *Homepage) Body(title string) qtwit422016.Factory {
 	//line testdata/test.qtpl:143
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:143
-	h.WriteBody(qb422016, title)
-	//line testdata/test.qtpl:143
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:143
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:143
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:143
+		h.WriteBody(qw422016, title)
+		//line testdata/test.qtpl:143
+	})
 //line testdata/test.qtpl:143
 }
 
@@ -867,16 +841,12 @@ func WriteVariadic(qq422016 qtio422016.Writer, a int, b ...string) {
 }
 
 //line testdata/test.qtpl:158
-func Variadic(a int, b ...string) string {
+func Variadic(a int, b ...string) qtwit422016.Factory {
 	//line testdata/test.qtpl:158
-	qb422016 := qt422016.AcquireByteBuffer()
-	//line testdata/test.qtpl:158
-	WriteVariadic(qb422016, a, b...)
-	//line testdata/test.qtpl:158
-	qs422016 := string(qb422016.B)
-	//line testdata/test.qtpl:158
-	qt422016.ReleaseByteBuffer(qb422016)
-	//line testdata/test.qtpl:158
-	return qs422016
+	return qtwit422016.FromHandler(func(qw422016 qtio422016.Writer) {
+		//line testdata/test.qtpl:158
+		WriteVariadic(qw422016, a, b...)
+		//line testdata/test.qtpl:158
+	})
 //line testdata/test.qtpl:158
 }

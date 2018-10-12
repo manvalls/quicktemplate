@@ -140,14 +140,16 @@ func (p *parser) emitImportsUse() {
 	p.Printf(`import (
 	qtio%s "io"
 
-	qt%s "github.com/manvalls/quicktemplate"
+	qtwit%s "github.com/manvalls/wit"
+	qt%s    "github.com/manvalls/quicktemplate"
 )
-`, mangleSuffix, mangleSuffix)
+`, mangleSuffix, mangleSuffix, mangleSuffix)
 	p.Printf(`var (
 	_ = qtio%s.Copy
 	_ = qt%s.AcquireByteBuffer
+	_ = qtwit%s.Nil
 )
-`, mangleSuffix, mangleSuffix)
+`, mangleSuffix, mangleSuffix, mangleSuffix)
 	p.importsUseEmitted = true
 }
 
@@ -784,11 +786,11 @@ func (p *parser) emitFuncEnd(f *funcType) {
 
 	p.Printf("func %s {", f.DefString())
 	p.prefix = "\t"
-	p.Printf("qb%s := qt%s.AcquireByteBuffer()", mangleSuffix, mangleSuffix)
-	p.Printf("%s", f.CallWrite("qb"+mangleSuffix))
-	p.Printf("qs%s := string(qb%s.B)", mangleSuffix, mangleSuffix)
-	p.Printf("qt%s.ReleaseByteBuffer(qb%s)", mangleSuffix, mangleSuffix)
-	p.Printf("return qs%s", mangleSuffix)
+	p.Printf("return qtwit%s.FromHandler(func(qw%s qtio%s.Writer){", mangleSuffix, mangleSuffix, mangleSuffix)
+	p.prefix = "\t\t"
+	p.Printf("%s", f.CallWrite("qw"+mangleSuffix))
+	p.prefix = "\t"
+	p.Printf("})")
 	p.prefix = ""
 	p.Printf("}\n")
 }
