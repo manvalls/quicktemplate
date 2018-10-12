@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/valyala/quicktemplate"
+	"github.com/manvalls/quicktemplate"
 )
 
 func TestParsePackageName(t *testing.T) {

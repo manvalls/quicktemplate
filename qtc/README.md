@@ -1,13 +1,13 @@
 # qtc
 
-Template compiler (converter) for [quicktemplate](https://github.com/valyala/quicktemplate).
+Template compiler (converter) for [quicktemplate](https://github.com/manvalls/quicktemplate).
 Converts quicktemplate files into Go code. By default these files
 have `.qtpl` extension.
 
 # Usage
 
 ```
-$ go get -u github.com/valyala/quicktemplate/qtc
+$ go get -u github.com/manvalls/quicktemplate/qtc
 $ qtc -h
 ```
 

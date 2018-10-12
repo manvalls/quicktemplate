@@ -1,3 +1,3 @@
-[quicktemplate](https://github.com/valyala/quicktemplate) examples:
+[quicktemplate](https://github.com/manvalls/quicktemplate) examples:
 
-* [basic usage](https://github.com/valyala/quicktemplate/tree/master/examples/basicserver)
+* [basic usage](https://github.com/manvalls/quicktemplate/tree/master/examples/basicserver)

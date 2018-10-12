@@ -4,7 +4,7 @@
 // Quicktemplate compiler (qtc) must be installed before running
 // `go generate`:
 //
-//     go get -u github.com/valyala/quicktemplate/qtc
+//     go get -u github.com/manvalls/quicktemplate/qtc
 //
 //go:generate qtc -dir=templates
 package main
@@ -15,7 +15,7 @@ import (
 	"math/rand"
 
 	"github.com/valyala/fasthttp"
-	"github.com/valyala/quicktemplate/examples/basicserver/templates"
+	"github.com/manvalls/quicktemplate/examples/basicserver/templates"
 )
 
 func main() {

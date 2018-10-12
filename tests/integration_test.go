@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/valyala/quicktemplate/testdata/templates"
+	"github.com/manvalls/quicktemplate/testdata/templates"
 )
 
 func TestIntegration(t *testing.T) {

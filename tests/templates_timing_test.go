@@ -7,8 +7,8 @@ import (
 	"log"
 	"testing"
 
-	"github.com/valyala/quicktemplate"
-	"github.com/valyala/quicktemplate/testdata/templates"
+	"github.com/manvalls/quicktemplate"
+	"github.com/manvalls/quicktemplate/testdata/templates"
 )
 
 var tpl = template.Must(template.ParseFiles("../testdata/templates/bench.tpl"))

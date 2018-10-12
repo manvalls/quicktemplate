@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/valyala/quicktemplate.svg)](https://travis-ci.org/valyala/quicktemplate)
-[![GoDoc](https://godoc.org/github.com/valyala/quicktemplate?status.svg)](http://godoc.org/github.com/valyala/quicktemplate)
-[![Go Report Card](https://goreportcard.com/badge/github.com/valyala/quicktemplate)](https://goreportcard.com/report/github.com/valyala/quicktemplate)
+[![Build Status](https://travis-ci.org/manvalls/quicktemplate.svg)](https://travis-ci.org/manvalls/quicktemplate)
+[![GoDoc](https://godoc.org/github.com/manvalls/quicktemplate?status.svg)](http://godoc.org/github.com/manvalls/quicktemplate)
+[![Go Report Card](https://goreportcard.com/badge/github.com/manvalls/quicktemplate)](https://goreportcard.com/report/github.com/manvalls/quicktemplate)
 
 # quicktemplate
 
@@ -15,14 +15,14 @@ Inspired by the [Mako templates](http://www.makotemplates.org/) philosophy.
     yet another template language before starting to use quicktemplate.
   * Almost all bugs are caught during template compilation, so production
     suffers less from template-related bugs.
-  * Easy to use. See [quickstart](#quick-start) and [examples](https://github.com/valyala/quicktemplate/tree/master/examples)
+  * Easy to use. See [quickstart](#quick-start) and [examples](https://github.com/manvalls/quicktemplate/tree/master/examples)
     for details.
   * Powerful. Arbitrary Go code may be embedded into and mixed with templates.
     Be careful with this power - do not query the database and/or external resources from
     templates unless you miss the PHP way in Go :) This power is mostly for
     arbitrary data transformations.
   * Easy to use template inheritance powered by [Go interfaces](https://golang.org/doc/effective_go.html#interfaces).
-    See [this example](https://github.com/valyala/quicktemplate/tree/master/examples/basicserver) for details.
+    See [this example](https://github.com/manvalls/quicktemplate/tree/master/examples/basicserver) for details.
   * Templates are compiled into a single binary, so there is no need to copy
     template files to the server.
 
@@ -38,13 +38,13 @@ Inspired by the [Mako templates](http://www.makotemplates.org/) philosophy.
 Quicktemplate is more than 20x faster than [html/template](https://golang.org/pkg/html/template/).
 The following simple template is used in the benchmark:
 
-  * [html/template version](https://github.com/valyala/quicktemplate/blob/master/testdata/templates/bench.tpl)
-  * [quicktemplate version](https://github.com/valyala/quicktemplate/blob/master/testdata/templates/bench.qtpl)
+  * [html/template version](https://github.com/manvalls/quicktemplate/blob/master/testdata/templates/bench.tpl)
+  * [quicktemplate version](https://github.com/manvalls/quicktemplate/blob/master/testdata/templates/bench.qtpl)
 
 Benchmark results:
 
 ```
-$ go test -bench='Benchmark(Quick|HTML)Template' -benchmem github.com/valyala/quicktemplate/tests
+$ go test -bench='Benchmark(Quick|HTML)Template' -benchmem github.com/manvalls/quicktemplate/tests
 BenchmarkQuickTemplate1-4                 	10000000	       120 ns/op	       0 B/op	       0 allocs/op
 BenchmarkQuickTemplate10-4                	 3000000	       441 ns/op	       0 B/op	       0 allocs/op
 BenchmarkQuickTemplate100-4               	  300000	      3945 ns/op	       0 B/op	       0 allocs/op
@@ -71,16 +71,16 @@ BenchmarkHTMLTemplate100-4                	   10000	    123392 ns/op	   34498 B/
 
 # Examples
 
-See [examples](https://github.com/valyala/quicktemplate/tree/master/examples).
+See [examples](https://github.com/manvalls/quicktemplate/tree/master/examples).
 
 # Quick start
 
 First of all, install the `quicktemplate` package
-and [quicktemplate compiler](https://github.com/valyala/quicktemplate/tree/master/qtc) (`qtc`):
+and [quicktemplate compiler](https://github.com/manvalls/quicktemplate/tree/master/qtc) (`qtc`):
 
 ```
-go get -u github.com/valyala/quicktemplate
-go get -u github.com/valyala/quicktemplate/qtc
+go get -u github.com/manvalls/quicktemplate
+go get -u github.com/manvalls/quicktemplate/qtc
 ```
 
 Let's start with a minimal template example:
@@ -424,7 +424,7 @@ There are other useful tags supported by quicktemplate:
     {% endfunc %}
     ```
 
-    See [basicserver example](https://github.com/valyala/quicktemplate/tree/master/examples/basicserver)
+    See [basicserver example](https://github.com/manvalls/quicktemplate/tree/master/examples/basicserver)
     for more details.
 
 # Performance optimization tips
@@ -556,7 +556,7 @@ and [encoding/xml](https://golang.org/pkg/encoding/xml/).
 See the corresponding benchmark results:
 
 ```
-go test -bench=Marshal -benchmem github.com/valyala/quicktemplate/tests
+go test -bench=Marshal -benchmem github.com/manvalls/quicktemplate/tests
 BenchmarkMarshalJSONStd1-4                	 3000000	       480 ns/op	       8 B/op	       1 allocs/op
 BenchmarkMarshalJSONStd10-4               	 1000000	      1842 ns/op	       8 B/op	       1 allocs/op
 BenchmarkMarshalJSONStd100-4              	  100000	     15820 ns/op	       8 B/op	       1 allocs/op
@@ -590,7 +590,7 @@ BenchmarkMarshalXMLQuickTemplate1000-4    	   30000	     53000 ns/op	      32 B/
       * Defining multiple function templates in a single template file.
       * Embedding function templates inside other function templates.
       * Template interfaces, inheritance and overriding.
-        See [this example](https://github.com/valyala/quicktemplate/tree/master/examples/basicserver)
+        See [this example](https://github.com/manvalls/quicktemplate/tree/master/examples/basicserver)
         for details.
       * Top-level comments outside function templates.
       * Template packages.
@@ -609,13 +609,13 @@ BenchmarkMarshalXMLQuickTemplate1000-4    	   30000	     53000 ns/op	      32 B/
 
 * *Is there a syntax highlighting for qtpl files?*
 
-  Yes - see [this issue](https://github.com/valyala/quicktemplate/issues/19) for details.
+  Yes - see [this issue](https://github.com/manvalls/quicktemplate/issues/19) for details.
   If you are using JetBrains products (syntax highlighting and autocomplete):
     * cd [JetBrains settings directory](https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs)
     * mkdir -p filetypes && cd filetypes
-    * curl https://raw.githubusercontent.com/valyala/quicktemplate/master/QuickTemplate.xml >> QuickTemplate.xml
+    * curl https://raw.githubusercontent.com/manvalls/quicktemplate/master/QuickTemplate.xml >> QuickTemplate.xml
     * Restart your IDE
 
 * *I didn't find an answer for my question here.*
 
-  Try exploring [these questions](https://github.com/valyala/quicktemplate/issues?q=label%3Aquestion).
+  Try exploring [these questions](https://github.com/manvalls/quicktemplate/issues?q=label%3Aquestion).

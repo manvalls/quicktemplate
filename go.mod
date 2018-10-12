@@ -1,4 +1,4 @@
-module github.com/valyala/quicktemplate
+module github.com/manvalls/quicktemplate
 
 require (
 	github.com/klauspost/compress v1.4.0 // indirect

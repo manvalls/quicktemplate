@@ -6,7 +6,7 @@ build: update
 
 update:
 	go get -u github.com/valyala/fasthttp
-	go get -u github.com/valyala/quicktemplate/qtc
+	go get -u github.com/manvalls/quicktemplate/qtc
 
 generate: update
 	go generate

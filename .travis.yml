@@ -4,7 +4,7 @@ go:
   - "1.11"
 
 before_install:
-  - go get -u github.com/valyala/quicktemplate/qtc
+  - go get -u github.com/manvalls/quicktemplate/qtc
   - go generate
 
 script:
